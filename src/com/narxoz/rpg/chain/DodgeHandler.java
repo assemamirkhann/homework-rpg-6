@@ -19,5 +19,11 @@ public class DodgeHandler extends DefenseHandler {
         //       - Print a dodge message (e.g. "[Dodge] Attack evaded!")
         //       - Stop the chain — do NOT call passToNext.
         // TODO: If the dodge fails, pass the full incomingDamage to the next handler.
+        double roll = random.nextDouble();
+        if (roll < dodgeChance) {
+            System.out.println(target.getName() + " dodged the attack! [Dodge]");
+        } else {
+            passToNext(incomingDamage, target);
+        }
     }
 }
